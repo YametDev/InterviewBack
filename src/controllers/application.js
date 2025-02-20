@@ -3,12 +3,13 @@ const { Application } = require("../models");
 
 module.exports.lookup = (req, res) => {
   const find = {
-    link: req.body?.link,
-    state: req.body?.state,
     company: req.body?.company,
     role: req.body?.role,
+    state: req.body?.state,
+    description: req.body?.description,
   };
   Application.countDocuments(find).then((count) => {
+    console.log(count);
     Application.find(find)
       .skip(req.body.from)
       .limit(req.body.count)
