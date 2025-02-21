@@ -6,7 +6,7 @@ module.exports.lookup = (req, res) => {
     company: req.body?.company,
     role: req.body?.role,
     state: req.body?.state,
-    description: req.body?.description,
+    // description: req.body?.description,
   };
   Application.countDocuments(find).then((count) => {
     console.log(count);
@@ -60,4 +60,4 @@ module.exports.delete = (req, res) => {
 
 module.exports.deleteMany = (req, res) => {
   return {};
-}
+};
