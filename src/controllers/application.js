@@ -4,9 +4,10 @@ const { Application } = require("../models");
 module.exports.lookup = (req, res) => {
   const find = {
     company: req.body?.company,
+    link: req.body?.link,
     role: req.body?.role,
     state: req.body?.state,
-    // description: req.body?.description,
+    description: req.body?.description,
   };
   Application.countDocuments(find).then((count) => {
     console.log(count);
