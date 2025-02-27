@@ -9,23 +9,25 @@ module.exports.lookup = (req, res) => {
     state: req.body?.state,
     description: req.body?.description,
   };
-  Application.countDocuments(find).then((count) => {
-    console.log(count);
-    Application.find(find)
-      .skip(req.body.from)
-      .limit(req.body.count)
-      .sort({ votes: 1, views: 1, createdAt: -1 })
-      .then((applications) => {
-        if (applications) {
-          res.send({ result: true, data: applications, count });
-        } else {
-          res.send({ result: false, message: "Applications not found." });
-        }
-      })
-      .catch((error) =>
-        res.send({ result: false, message: "Error :" + error })
-      );
-  });
+  Application.countDocuments(find)
+    .then((count) => {
+      console.log(count);
+      Application.find(find)
+        .skip(req.body.from)
+        .limit(req.body.count)
+        .sort({ votes: 1, views: 1, createdAt: -1 })
+        .then((applications) => {
+          if (applications) {
+            res.send({ result: true, data: applications, count });
+          } else {
+            res.send({ result: false, message: "Applications not found." });
+          }
+        })
+        .catch((error) =>
+          res.send({ result: false, message: "Error :" + error })
+        );
+    })
+    .catch((error) => res.send({ result: false, message: "Error :" + error }));
 };
 
 module.exports.create = (req, res) => {
