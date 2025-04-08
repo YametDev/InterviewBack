@@ -78,7 +78,7 @@ module.exports.create = (req, res) => {
 };
 
 module.exports.update = (req, res) => {
-  Application.findOneAndUpdate(req.body.find, req.body.update)
+  Application.findByIdAndUpdate(req.body.id, req.body.update)
     .then((application) => {
       res.send({ result: true, data: application });
     })
