@@ -1,9 +1,9 @@
 const uploadRouter = require("./upload");
-const questionRouter = require("./question");
+const userRouter = require("./user");
 const applicationRouter = require("./application");
 
 module.exports = (app) => {
-  app.use("/question", questionRouter);
+  app.use("/user", userRouter);
   app.use("/application", applicationRouter);
   app.use("/upload_files", uploadRouter);
 

@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const app = require('./app');
 const { userController } = require('./src/controllers');
 const { EmailInterval } = require('./src/config');
+const { Application } = require('./src/models');
 
 const port = process.env.PORT
 app.set('port', port)
@@ -20,7 +21,7 @@ async function startServer() {
       })
       .then(() => {
         server.listen(port, () => {
-          console.log(`Connected to local - Database for http server to port ${port}`,)
+          console.log(`Connected to local - Database for http server to port ${port}`,);
         })
       })
       .catch((err) => {

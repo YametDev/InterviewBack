@@ -11,12 +11,14 @@ module.exports.lookup = (req, res) => {
   const endOfDayUTC = clientEndDate.minus({ minutes: req.body.offset }).toJSDate();
 
   const find = req.body.date.length === 0 || req.body.date === '0000-00-00' ? {
+    email: req.body?.email,
     company: req.body?.company,
     link: req.body?.link,
     role: req.body?.role,
     state: req.body?.state,
     description: req.body?.description,
   } : {
+    email: req.body?.email,
     company: req.body?.company,
     link: req.body?.link,
     role: req.body?.role,

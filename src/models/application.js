@@ -4,6 +4,7 @@ const AutoIncrement = require("mongoose-sequence")(mongoose);
 const applicationSchema = new mongoose.Schema(
   {
     id: { type: Number, default: 0 },
+    email: String,
     link: String,
     company: String,
     role: String,

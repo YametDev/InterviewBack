@@ -1,2 +1,2 @@
-module.exports.Question = require('./question');
+module.exports.User = require('./user');
 module.exports.Application = require('./application');
